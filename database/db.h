@@ -3,6 +3,7 @@
 
 #include <QSql>
 #include <QSqlDatabase>
+#include <QSqlQuery>
 #include <QDebug>
 
 class Db
@@ -12,6 +13,7 @@ public:
     void open();
     void close();
     QSqlDatabase getDb();
+    void updateEtudiant(QString numEt, QString nomEt, QString prenomEt, QString numTel);
 
 private:
     QSqlDatabase mydb;

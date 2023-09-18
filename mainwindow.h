@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QSqlRelationalTableModel>
 #include <QSqlRelationalDelegate>
+#include <QTableView>
+
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"
 
@@ -20,9 +22,14 @@ public:
     ~MainWindow();
     void displayTable();
     void resetTable();
+    void fillInputChange(QTableView* qv, QModelIndexList indexes);
 
 private slots:
     void on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles);
+    void on_row_selected(const QItemSelection &selected, const QItemSelection &deselected);
+
+
+    void on_modifierButton_clicked();
 
 private:
     Db* mydb = new Db;
