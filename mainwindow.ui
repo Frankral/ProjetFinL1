@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>878</width>
+    <width>924</width>
     <height>520</height>
    </rect>
   </property>
@@ -47,7 +47,7 @@
      <rect>
       <x>610</x>
       <y>120</y>
-      <width>261</width>
+      <width>301</width>
       <height>351</height>
      </rect>
     </property>
@@ -58,23 +58,59 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
-       <width>251</width>
-       <height>80</height>
+       <y>30</y>
+       <width>281</width>
+       <height>164</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="verticalSpacing">
+       <number>30</number>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>TextLabel</string>
+         <string>Nom Etudiant</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="lineEdit"/>
       </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Prénom Etudiant</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_2"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Numéro Téléphone </string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="CustomLineEdit" name="numPhoneInp"/>
+      </item>
      </layout>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>210</y>
+       <width>194</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
     </widget>
    </widget>
   </widget>
@@ -83,13 +119,20 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>878</width>
+     <width>924</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CustomLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">customLineEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

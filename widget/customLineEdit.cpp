@@ -22,3 +22,15 @@ void CustomLineEdit::showErrors(){
 void CustomLineEdit::hideErrors(){
     QToolTip::hideText();
 }
+
+void CustomLineEdit::setupUI(QString regex, QString errorMsg){
+    QRegularExpressionValidator* validator = new QRegularExpressionValidator(QRegularExpression(regex));
+
+    this->setValidator(validator);
+
+    this->errorMsg = errorMsg;
+
+    connect(this, &QLineEdit::inputRejected, this, CustomLineEdit::showErrors);
+    connect(this, &QLineEdit::textChanged, this, CustomLineEdit::hideErrors);
+
+}

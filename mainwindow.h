@@ -21,6 +21,9 @@ public:
     void displayTable();
     void resetTable();
 
+private slots:
+    void on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles);
+
 private:
     Db* mydb = new Db;
     Ui::MainWindow *ui;

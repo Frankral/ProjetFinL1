@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     displayTable();
 
+    ui->numPhoneInp->setupUI("^(032|033|034|038)\\d{7}$", "Le numero de téléphone doit être de la forme 03XXXXXXXX");
+
+    connect(ui->tableEtudiant->model(), &QAbstractItemModel::dataChanged, this, MainWindow::on_table_value_change);
+
 }
 
 MainWindow::~MainWindow()
@@ -48,3 +52,8 @@ void MainWindow::resetTable(){
     ui->tableEtudiant->repaint();
 }
 
+void MainWindow::on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles){
+    Q_UNUSED(bottomRight);
+    Q_UNUSED(roles);
+    Q_UNUSED(topLeft);
+}

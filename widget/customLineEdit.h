@@ -15,6 +15,7 @@ class CustomLineEdit: public QLineEdit
     Q_OBJECT
 public:
     CustomLineEdit(QWidget* parent=nullptr, QString regex=QString(), QString errorMsg=QString());
+    void setupUI(QString regex=QString(), QString errorMsg=QString());
 
 private slots:
     void showErrors();
