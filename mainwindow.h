@@ -34,6 +34,8 @@ private slots:
 
     void on_ajoutButton_clicked();
 
+    void on_searchInput_textEdited(const QString &arg1);
+
 private:
     Db* mydb = new Db;
     Ui::MainWindow *ui;

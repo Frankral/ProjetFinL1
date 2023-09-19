@@ -138,3 +138,19 @@ void MainWindow::on_ajoutButton_clicked()
     addEt->show();
 }
 
+
+void MainWindow::on_searchInput_textEdited(const QString &arg1)
+{
+    QSqlRelationalTableModel* model = static_cast<QSqlRelationalTableModel*>(ui->tableEtudiant->model());
+    if(arg1 != ""){
+        QString arg = arg1.toLower();
+        QString filter = "LOWER(numet) LIKE '%" + arg + "%' OR LOWER(nomet) LIKE '%" + arg + "%' OR LOWER(prenomet) LIKE '%" + arg + "%' OR LOWER(numtel) LIKE '%" + arg + "%'";
+        model->setFilter(filter);
+        model->select();
+    } else {
+        model->setFilter("");
+        model->select();
+    }
+
+}
+
