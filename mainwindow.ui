@@ -63,74 +63,101 @@
        <x>10</x>
        <y>30</y>
        <width>281</width>
-       <height>164</height>
+       <height>188</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <property name="verticalSpacing">
        <number>30</number>
       </property>
-      <item row="0" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Nom Etudiant</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
+      <item row="1" column="1">
        <widget class="QLineEdit" name="InputNom"/>
       </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Prénom Etudiant</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item row="2" column="1">
        <widget class="QLineEdit" name="InputPrenom"/>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Numéro Téléphone </string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="CustomLineEdit" name="InputNumTel"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Numéro Etudiant</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="numEtudiant">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
-    <widget class="QPushButton" name="modifierButton">
+    <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>210</y>
-       <width>141</width>
-       <height>24</height>
+       <x>70</x>
+       <y>230</y>
+       <width>160</width>
+       <height>101</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Modifier</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="modifierButton">
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="supprimerButton">
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QLabel" name="numEtudiant">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>280</y>
-       <width>49</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>id</string>
-     </property>
-    </widget>
-    <zorder>numEtudiant</zorder>
-    <zorder>formLayoutWidget</zorder>
-    <zorder>modifierButton</zorder>
+   </widget>
+   <widget class="QPushButton" name="ajoutButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ajouter Nouveau</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

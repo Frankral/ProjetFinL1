@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     database/db.cpp \
+    dialogs/addetudiant.cpp \
     main.cpp \
     mainwindow.cpp \
     tableDelegate/customDelegate.cpp \
@@ -18,12 +19,14 @@ SOURCES += \
 
 HEADERS += \
     database/db.h \
+    dialogs/addetudiant.h \
     mainwindow.h \
     tableDelegate/customDelegate.h \
     tableDelegate/format.h \
     widget/customLineEdit.h
 
 FORMS += \
+    dialogs/addetudiant.ui \
     mainwindow.ui
 
 INCLUDEPATH += \

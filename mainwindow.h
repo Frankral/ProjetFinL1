@@ -5,6 +5,7 @@
 #include <QSqlRelationalTableModel>
 #include <QSqlRelationalDelegate>
 #include <QTableView>
+#include <QMessageBox>
 
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"
@@ -23,16 +24,21 @@ public:
     void displayTable();
     void resetTable();
     void fillInputChange(QTableView* qv, QModelIndexList indexes);
+    bool addNewEtudiant(QString numEt, QString nomEt, QString prenomEt, QString numTel);
 
 private slots:
-    void on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles);
-    void on_row_selected(const QItemSelection &selected, const QItemSelection &deselected);
-
 
     void on_modifierButton_clicked();
+
+    void on_supprimerButton_clicked();
+
+    void on_ajoutButton_clicked();
 
 private:
     Db* mydb = new Db;
     Ui::MainWindow *ui;
+
+    void on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles);
+    void on_row_selected(const QItemSelection &selected, const QItemSelection &deselected);
 };
 #endif // MAINWINDOW_H
