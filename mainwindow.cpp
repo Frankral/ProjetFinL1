@@ -53,7 +53,7 @@ void MainWindow::displayTable(){
 void MainWindow::resetTable(){
     displayTable();
     ui->tableEtudiant->repaint();
-
+    ui->modifierBox->hide();
 }
 
 void MainWindow::fillInputChange(QTableView* qv, QModelIndexList indexes){

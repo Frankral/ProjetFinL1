@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QTableView>
+#include <QMessageBox>
 #include "mainwindow.h"
 
 namespace Ui {
@@ -24,6 +25,9 @@ private slots:
 
 private:
     Ui::addEtudiant *ui;
+    bool checkNumEt(QString numEt);
+    bool checkNumTel(QString numTel);
+    bool checkNom(QString nomEt);
 };
 
 #endif // ADDETUDIANT_H
