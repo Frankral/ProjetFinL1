@@ -38,6 +38,7 @@ void EtudiantCrud::displayTable(){
 
     ui->tableEtudiant->setItemDelegate(new QSqlRelationalDelegate(ui->tableEtudiant));
     ui->tableEtudiant->setItemDelegateForColumn(0, new CustomDelegate(this, "unedit", "", "", ""));
+    ui->tableEtudiant->setItemDelegateForColumn(1, new CustomDelegate(this, "", "", "^.+$", "Le nom ne doit pas être vide"));
     ui->tableEtudiant->setItemDelegateForColumn(3, new CustomDelegate(this, "", "phoneNumber", "^(032|033|034|038)\\d{7}$", "Le numero de téléphone doit être de la forme 03XXXXXXXX"));
 
     ui->tableEtudiant->setModel(model);
@@ -65,7 +66,8 @@ void EtudiantCrud::fillInputChange(QTableView* qv, QModelIndexList indexes){
 
 bool EtudiantCrud::addNewEtudiant(QString numEt, QString nomEt, QString prenomEt, QString numTel){
     if(!mydb->numEtudiantExist(numEt)){
-        mydb->addEtudiant(numEt, nomEt, prenomEt, numTel);
+
+        mydb->add("etudiant" ,{numEt, nomEt, prenomEt, numTel});
         return true;
     } else {
         QMessageBox::critical(this, "Erreur de doublon de numéro", "Le numéro de l'étudiant est déjà pris\nVeuillez entrez un nouveau");
@@ -108,14 +110,23 @@ void EtudiantCrud::on_modifierButton_clicked()
     numTel = ui->InputNumTel->text();
     numEt = ui->numEtudiant->text();
 
-    QRegularExpression* regex = new QRegularExpression("^(032|033|034|038)\\d{7}$");
-    QRegularExpressionMatch match = regex->match(numTel);
+    if(nomEt != ""){
+        QRegularExpression* regex = new QRegularExpression("^(032|033|034|038)\\d{7}$");
+        QRegularExpressionMatch match = regex->match(numTel);
 
-    if(match.hasMatch()){
-        mydb->updateEtudiant(numEt,nomEt,prenomEt,numTel);
-        resetTable();
-    } else{
-        QMessageBox::critical(this, "Erreur de saisie", "Le numero de Téléphone doit etre de la forme 03XXXXXXXX");
+
+        if(match.hasMatch()){
+            QStringList column = {"nomet", "prenomet", "numtel"};
+            QStringList values = {nomEt, prenomEt, numTel};
+            QStringList id = {"numet"};
+            QStringList idVal = {numEt};
+            mydb->update("etudiant", column, values, id, idVal);
+            resetTable();
+        } else{
+            QMessageBox::critical(this, "Erreur de saisie", "Le numero de Téléphone doit etre de la forme 03XXXXXXXX");
+        }
+    } else {
+        QMessageBox::critical(this, "Erreur de saisie", "Le nom ne doit pas être vide");
     }
 
 }
@@ -126,7 +137,7 @@ void EtudiantCrud::on_supprimerButton_clicked()
     ind = ui->tableEtudiant->model()->index(ind.row(), 0);
     QString numEt = ui->tableEtudiant->model()->data(ind).toString();
 
-    mydb->deleteEtudiant(numEt);
+    mydb->del({"louer", "etudiant"}, {"numet"}, {numEt});
     resetTable();
     ui->modifierBox->hide();
 }
