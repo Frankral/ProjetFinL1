@@ -28,6 +28,10 @@ QSqlDatabase Db::getDb(){
     return mydb;
 }
 
+
+// etudiant
+
+
 void Db::updateEtudiant(QString numEt, QString nomEt, QString prenomEt, QString numTel){
     QSqlQuery qry;
     qry.prepare("UPDATE etudiant SET nomet=:nomEt , prenomet=:prenomEt , numtel=:numTel WHERE numEt=:numEt");

@@ -67,7 +67,7 @@ void addEtudiant::on_OkButton_clicked()
 
             if(checkNumTel(numTel)){
 
-                MainWindow* parent = static_cast<MainWindow*>(this->parent());
+                EtudiantCrud* parent = static_cast<EtudiantCrud*>(this->parent());
                 if(parent->addNewEtudiant(numEt, nomEt, prenomEt, numTel)){
                     parent->resetTable();
                     this->close();

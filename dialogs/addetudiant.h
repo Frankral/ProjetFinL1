@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QTableView>
 #include <QMessageBox>
-#include "mainwindow.h"
+#include "cruds/etudiantcrud.h"
 
 namespace Ui {
 class addEtudiant;

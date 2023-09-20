@@ -2,10 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSqlRelationalTableModel>
-#include <QSqlRelationalDelegate>
-#include <QTableView>
-#include <QMessageBox>
+#include <QStackedWidget>
+
+#include "cruds/etudiantcrud.h"
+#include "cruds/batimentcrud.h"
+#include "cruds/calendriercrud.h"
+#include "cruds/chambrecrud.h"
+#include "cruds/louercrud.h"
 
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"
@@ -21,26 +24,35 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void displayTable();
-    void resetTable();
-    void fillInputChange(QTableView* qv, QModelIndexList indexes);
-    bool addNewEtudiant(QString numEt, QString nomEt, QString prenomEt, QString numTel);
 
 private slots:
+//    void on_actionEtudiant_triggered();
 
-    void on_modifierButton_clicked();
+//    void on_actionCalendrier_triggered();
 
-    void on_supprimerButton_clicked();
+//    void on_actionChambre_triggered();
 
-    void on_ajoutButton_clicked();
+//    void on_actionLouer_triggered();
 
-    void on_searchInput_textEdited(const QString &arg1);
+//    void on_actionBatiment_triggered();
+
+    void on_actionEtudiant_triggered();
+
+    void on_actionBatiment_triggered();
+
+    void on_actionCalendrier_triggered();
+
+    void on_actionChambre_triggered();
+
+    void on_actionLouer_triggered();
 
 private:
     Db* mydb = new Db;
+
+
+
     Ui::MainWindow *ui;
 
-    void on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles);
-    void on_row_selected(const QItemSelection &selected, const QItemSelection &deselected);
+    void hideWindows();
 };
 #endif // MAINWINDOW_H

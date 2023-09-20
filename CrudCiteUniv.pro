@@ -9,6 +9,11 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cruds/batimentcrud.cpp \
+    cruds/calendriercrud.cpp \
+    cruds/chambrecrud.cpp \
+    cruds/etudiantcrud.cpp \
+    cruds/louercrud.cpp \
     database/db.cpp \
     dialogs/addetudiant.cpp \
     main.cpp \
@@ -18,6 +23,11 @@ SOURCES += \
     widget/customLineEdit.cpp
 
 HEADERS += \
+    cruds/batimentcrud.h \
+    cruds/calendriercrud.h \
+    cruds/chambrecrud.h \
+    cruds/etudiantcrud.h \
+    cruds/louercrud.h \
     database/db.h \
     dialogs/addetudiant.h \
     mainwindow.h \
@@ -26,11 +36,17 @@ HEADERS += \
     widget/customLineEdit.h
 
 FORMS += \
+    cruds/batimentcrud.ui \
+    cruds/calendriercrud.ui \
+    cruds/chambrecrud.ui \
+    cruds/etudiantcrud.ui \
+    cruds/louercrud.ui \
     dialogs/addetudiant.ui \
     mainwindow.ui
 
 INCLUDEPATH += \
-    widget/
+    widget/ \
+    cruds/
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
