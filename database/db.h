@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QDate>
 
 
 class Db
@@ -26,6 +27,9 @@ public:
 
     // batiment
     bool refBatExist(QString refBat);
+
+    // calendrier
+    bool dateDebLocExist(QDate dateDebLoc);
 
 private:
     QSqlDatabase mydb;

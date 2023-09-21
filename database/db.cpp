@@ -134,3 +134,17 @@ bool Db::refBatExist(QString refBat)
     }
     return false;
 }
+
+// calendrier
+bool Db::dateDebLocExist(QDate dateDebLoc)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT datedebutlocation FROM calendrier WHERE datedebutlocation=:datedebutlocation");
+
+    qry.bindValue(":datedebutlocation", dateDebLoc);
+
+    if (qry.exec() & qry.next()) {
+        return true;
+    }
+    return false;
+}

@@ -26,16 +26,6 @@ public:
     ~MainWindow();
 
 private slots:
-//    void on_actionEtudiant_triggered();
-
-//    void on_actionCalendrier_triggered();
-
-//    void on_actionChambre_triggered();
-
-//    void on_actionLouer_triggered();
-
-//    void on_actionBatiment_triggered();
-
     void on_actionEtudiant_triggered();
 
     void on_actionBatiment_triggered();
@@ -49,10 +39,6 @@ private slots:
 private:
     Db* mydb = new Db;
 
-
-
     Ui::MainWindow *ui;
-
-    void hideWindows();
 };
 #endif // MAINWINDOW_H

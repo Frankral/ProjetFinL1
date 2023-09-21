@@ -10,11 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     mydb->open();
 
-
-
-
-
-
 }
 
 MainWindow::~MainWindow()

@@ -130,6 +130,10 @@ void BatimentCrud::on_searchInput_textEdited(const QString &arg1)
     if(arg1 != ""){
         QString arg = arg1.toLower();
         QString filter = "LOWER(refbat) LIKE '%" + arg + "%'";
+        QRegularExpression re("^\\d*$");
+        if(re.match(arg).hasMatch()){
+            filter += " OR location=" + arg;
+        }
         model->setFilter(filter);
         model->select();
     } else {
