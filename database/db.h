@@ -15,16 +15,17 @@ public:
     void close();
     QSqlDatabase getDb();
 
-    // etudiant
-    void addEtudiant(QString numEt, QString NomEt, QString prenomEt, QString numTel);
-    bool numEtudiantExist(QString numEt);
-
-
     void update(QString table, QStringList columns, QStringList values, QStringList id, QStringList idVal);
 
     void del(QStringList tables, QStringList id, QStringList idVal);
 
     void add(QString table, QStringList values);
+
+    // etudiant
+    bool numEtudiantExist(QString numEt);
+
+    // batiment
+    bool refBatExist(QString refBat);
 
 private:
     QSqlDatabase mydb;

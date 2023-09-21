@@ -9,6 +9,14 @@ CustomDelegate::CustomDelegate(QObject *parent, QString type, QString display, Q
     this->errorMsg = errorMsg;
 }
 
+CustomDelegate::CustomDelegate(QObject *parent, int min, int max)
+    :QStyledItemDelegate(parent)
+{
+    this->type = "number";
+    this->min = min;
+    this->max = max;
+}
+
 QWidget* CustomDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(option);
@@ -16,6 +24,10 @@ QWidget* CustomDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
 
     if(type == "unedit"){
         return Q_NULLPTR;
+    }
+
+    if(type == "number"){
+        return new CustomSpinBox(parent, min, max);
     }
 
     if(regex != ""){

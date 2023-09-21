@@ -34,6 +34,7 @@ void BatimentCrud::displayTable(){
 
     ui->tableBat->setItemDelegate(new QSqlRelationalDelegate(ui->tableBat));
     ui->tableBat->setItemDelegateForColumn(0, new CustomDelegate(this, "unedit", "", "", ""));
+    ui->tableBat->setItemDelegateForColumn(1, new CustomDelegate(this, 0, 999));
 
     ui->tableBat->setModel(model);
 
@@ -55,6 +56,16 @@ void BatimentCrud::fillInputChange(QTableView* qv, QModelIndexList indexes){
     ui->refBat->setText(qv->model()->data(indexes.at(0)).toString());
     ui->locationBat->setValue(qv->model()->data(indexes.at(1)).toInt());
 }
+
+bool BatimentCrud::addNewBatiment(QString refBat, int nbLocation){
+    if(!mydb->refBatExist(refBat)){
+        mydb->add("batiment", {refBat, QString::number(nbLocation)});
+        return true;
+    }
+     QMessageBox::critical(this, "Erreur de référence du batiment", "La référence du batiment existe déjà\nVeuillez entrez un nouveau");
+    return false;
+}
+
 
 // slots
 void BatimentCrud::on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles){
@@ -85,8 +96,11 @@ void BatimentCrud::on_row_selected(const QItemSelection &selected, const QItemSe
 
 void BatimentCrud::on_modifierButton_clicked()
 {
-    int nbLocation;
-    nbLocation = ui->locationBat->value();
+    QString refBat = ui->refBat->text();
+    int nbLocation = ui->locationBat->value();
+
+    mydb->update("batiment", {"location"}, {QString::number(nbLocation)}, {"refbat"}, {refBat});
+
     resetTable();
 }
 
@@ -96,6 +110,8 @@ void BatimentCrud::on_supprimerButton_clicked()
     ind = ui->tableBat->model()->index(ind.row(), 0);
     QString refBat = ui->tableBat->model()->data(ind).toString();
 
+    mydb->del({"louer", "chambre", "batiment"}, {"refbat"}, {refBat});
+
     resetTable();
     ui->modifierBox->hide();
 }
@@ -103,8 +119,8 @@ void BatimentCrud::on_supprimerButton_clicked()
 
 void BatimentCrud::on_ajoutButton_clicked()
 {
-//    addEtudiant* addEt = new addEtudiant(this);
-//    addEt->show();
+    addBatiment* addBat = new addBatiment(this);
+    addBat->show();
 }
 
 
@@ -113,7 +129,7 @@ void BatimentCrud::on_searchInput_textEdited(const QString &arg1)
     QSqlRelationalTableModel* model = static_cast<QSqlRelationalTableModel*>(ui->tableBat->model());
     if(arg1 != ""){
         QString arg = arg1.toLower();
-        QString filter = "LOWER(numet) LIKE '%" + arg + "%' OR LOWER(nomet) LIKE '%" + arg + "%' OR LOWER(prenomet) LIKE '%" + arg + "%' OR LOWER(numtel) LIKE '%" + arg + "%'";
+        QString filter = "LOWER(refbat) LIKE '%" + arg + "%'";
         model->setFilter(filter);
         model->select();
     } else {

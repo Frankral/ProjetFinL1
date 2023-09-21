@@ -15,12 +15,14 @@ SOURCES += \
     cruds/etudiantcrud.cpp \
     cruds/louercrud.cpp \
     database/db.cpp \
+    dialogs/addbatiment.cpp \
     dialogs/addetudiant.cpp \
     main.cpp \
     mainwindow.cpp \
     tableDelegate/customDelegate.cpp \
     tableDelegate/format.cpp \
-    widget/customLineEdit.cpp
+    widget/customLineEdit.cpp \
+    widget/customSpinBox.cpp
 
 HEADERS += \
     cruds/batimentcrud.h \
@@ -29,11 +31,13 @@ HEADERS += \
     cruds/etudiantcrud.h \
     cruds/louercrud.h \
     database/db.h \
+    dialogs/addbatiment.h \
     dialogs/addetudiant.h \
     mainwindow.h \
     tableDelegate/customDelegate.h \
     tableDelegate/format.h \
-    widget/customLineEdit.h
+    widget/customLineEdit.h \
+    widget/customSpinBox.h
 
 FORMS += \
     cruds/batimentcrud.ui \
@@ -41,6 +45,7 @@ FORMS += \
     cruds/chambrecrud.ui \
     cruds/etudiantcrud.ui \
     cruds/louercrud.ui \
+    dialogs/addbatiment.ui \
     dialogs/addetudiant.ui \
     mainwindow.ui
 

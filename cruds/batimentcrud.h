@@ -10,6 +10,7 @@
 
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"
+#include "dialogs/addbatiment.h"
 
 namespace Ui {
 class BatimentCrud;
@@ -25,6 +26,7 @@ public:
     void displayTable();
     void resetTable();
     void fillInputChange(QTableView* qv, QModelIndexList indexes);
+    bool addNewBatiment(QString refBat, int nbLocation);
 
 private slots:
 
