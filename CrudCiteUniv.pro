@@ -12,6 +12,7 @@ SOURCES += \
     cruds/batimentcrud.cpp \
     cruds/calendriercrud.cpp \
     cruds/chambrecrud.cpp \
+    cruds/etudiantcrud.cpp \
     cruds/louercrud.cpp \
     database/db.cpp \
     dialogs/addbatiment.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     cruds/batimentcrud.h \
     cruds/calendriercrud.h \
     cruds/chambrecrud.h \
+    cruds/etudiantcrud.h \
     cruds/louercrud.h \
     database/db.h \
     dialogs/addbatiment.h \
@@ -43,6 +45,7 @@ FORMS += \
     cruds/batimentcrud.ui \
     cruds/calendriercrud.ui \
     cruds/chambrecrud.ui \
+    cruds/etudiantcrud.ui \
     cruds/louercrud.ui \
     dialogs/addbatiment.ui \
     dialogs/addcalendrier.ui \

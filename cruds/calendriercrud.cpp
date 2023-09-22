@@ -90,14 +90,14 @@ void CalendrierCrud::on_row_selected(const QItemSelection &selected, const QItem
 }
 
 
-void CalendrierCrud::on_modifierButton_clicked()
-{
-    QDate dateDebLoc = ui->dateDebLoc->date();
+//void CalendrierCrud::on_modifierButton_clicked()
+//{
+//    QDate dateDebLoc = ui->dateDebLoc->date();
 
-    mydb->update("calendrier", {"datedebutlocation"}, {dateDebLoc.toString()}, {"datedebutlocation"}, {dateDebLoc.toString()});
+//    mydb->update("calendrier", {"datedebutlocation"}, {dateDebLoc.toString()}, {"datedebutlocation"}, {dateDebLoc.toString()});
 
-    resetTable();
-}
+//    resetTable();
+//}
 
 void CalendrierCrud::on_supprimerButton_clicked()
 {
@@ -118,22 +118,36 @@ void CalendrierCrud::on_ajoutButton_clicked()
     addcal->show();
 }
 
-
-void CalendrierCrud::on_searchInput_textEdited(const QString &arg1)
+void CalendrierCrud::on_resetButton_clicked()
 {
+    ui->DateSearchDeb->setDate(QDate(2000, 1, 1));
+    ui->dateSearchFin->setDate(QDate(2000, 1, 1));
+
+    ui->modifierBox->hide();
+
     QSqlRelationalTableModel* model = static_cast<QSqlRelationalTableModel*>(ui->tableCalendrier->model());
-    if(arg1 != ""){
-        QString arg = arg1.toLower();
-        QString filter = "LOWER(refbat) LIKE '%" + arg + "%'";
-        QRegularExpression re("^\\d*$");
-        if(re.match(arg).hasMatch()){
-            filter += " OR location=" + arg;
-        }
-        model->setFilter(filter);
-        model->select();
+    model->setFilter("");
+    model->select();
+}
+
+
+void CalendrierCrud::on_searchButton_clicked()
+{
+    ui->modifierBox->hide();
+
+    QSqlRelationalTableModel* model = static_cast<QSqlRelationalTableModel*>(ui->tableCalendrier->model());
+    QDate dateDeb, dateFin;
+    dateDeb = ui->DateSearchDeb->date();
+    dateFin = ui->dateSearchFin->date();
+
+    QString filter;
+
+    if(dateDeb >= dateFin) {
+        filter = "datedebutlocation >= '"+ dateFin.toString() + "' AND datedebutlocation <= '" + dateDeb.toString() + "'";
     } else {
-        model->setFilter("");
-        model->select();
+        filter = "datedebutlocation >= '" + dateDeb.toString() + "' AND datedebutlocation <= '" + dateFin.toString() + "'";
     }
 
+    model->setFilter(filter);
 }
+

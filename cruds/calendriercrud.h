@@ -31,10 +31,13 @@ public:
     bool addNewCalendrier(QDate dateDebLoc);
 
 private slots:
-    void on_modifierButton_clicked();
+//    void on_modifierButton_clicked();
     void on_supprimerButton_clicked();
     void on_ajoutButton_clicked();
-    void on_searchInput_textEdited(const QString &arg1);
+    void on_resetButton_clicked();
+
+    void on_searchButton_clicked();
+
 private:
     Ui::CalendrierCrud *ui;
     Db *mydb;

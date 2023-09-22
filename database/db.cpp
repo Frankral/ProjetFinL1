@@ -47,6 +47,8 @@ void Db::update(QString table, QStringList columns, QStringList values, QStringL
 
     qry.prepare(qryStr);
 
+    qDebug() << qryStr;
+
     if (!qry.exec()) {
         qDebug() << "Query execution failed!";
     } else {
@@ -93,8 +95,6 @@ void Db::add(QString table, QStringList values)
     }
 
     qryStr += ")";
-
-    qDebug() << qryStr;
 
     qry.prepare(qryStr);
 
