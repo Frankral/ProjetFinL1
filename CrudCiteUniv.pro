@@ -17,11 +17,14 @@ SOURCES += \
     database/db.cpp \
     dialogs/addbatiment.cpp \
     dialogs/addcalendrier.cpp \
+    dialogs/addchambre.cpp \
     dialogs/addetudiant.cpp \
+    dialogs/addlouer.cpp \
     main.cpp \
     mainwindow.cpp \
     tableDelegate/customDelegate.cpp \
     tableDelegate/format.cpp \
+    widget/customCombo.cpp \
     widget/customLineEdit.cpp \
     widget/customSpinBox.cpp
 
@@ -34,10 +37,13 @@ HEADERS += \
     database/db.h \
     dialogs/addbatiment.h \
     dialogs/addcalendrier.h \
+    dialogs/addchambre.h \
     dialogs/addetudiant.h \
+    dialogs/addlouer.h \
     mainwindow.h \
     tableDelegate/customDelegate.h \
     tableDelegate/format.h \
+    widget/customCombo.h \
     widget/customLineEdit.h \
     widget/customSpinBox.h
 
@@ -49,7 +55,9 @@ FORMS += \
     cruds/louercrud.ui \
     dialogs/addbatiment.ui \
     dialogs/addcalendrier.ui \
+    dialogs/addchambre.ui \
     dialogs/addetudiant.ui \
+    dialogs/addlouer.ui \
     mainwindow.ui
 
 INCLUDEPATH += \

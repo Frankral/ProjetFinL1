@@ -31,6 +31,20 @@ public:
     // calendrier
     bool dateDebLocExist(QDate dateDebLoc);
 
+    // chambre
+    bool chambreExist(QString refbat, QString numchambre);
+
+
+    //louer
+    bool locationExist(QString numEt, QString refBat, QString numChambre, QString dateDebutLoc);
+
+    // getters
+    QSqlQuery getAll(QString table, QString column);
+
+    QSqlQuery getChambre(QString bat);
+    bool isChambreIn(QString refbat, QString chambre);
+    QString getFirstChambre(QString refbat);
+
 private:
     QSqlDatabase mydb;
 };

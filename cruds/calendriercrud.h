@@ -42,7 +42,6 @@ private:
     Ui::CalendrierCrud *ui;
     Db *mydb;
 
-    void on_table_value_change(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
     void on_row_selected(const QItemSelection &selected, const QItemSelection &deselected);
 };
 

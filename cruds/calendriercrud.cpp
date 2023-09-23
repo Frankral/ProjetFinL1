@@ -31,14 +31,14 @@ void CalendrierCrud::displayTable(){
     model->sort(0, Qt::AscendingOrder);
     model->select();
 
-    ui->tableCalendrier->setItemDelegate(new QSqlRelationalDelegate(ui->tableCalendrier));
 
     ui->tableCalendrier->setModel(model);
 
 
+    ui->tableCalendrier->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
     ui->tableCalendrier->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    connect(ui->tableCalendrier->model(), &QAbstractItemModel::dataChanged, this, CalendrierCrud::on_table_value_change);
     connect(ui->tableCalendrier->selectionModel(), &QItemSelectionModel::selectionChanged, this, &CalendrierCrud::on_row_selected);
 }
 
@@ -64,18 +64,6 @@ bool CalendrierCrud::addNewCalendrier(QDate dateDebLoc){
 
 
 // slots
-void CalendrierCrud::on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles){
-    Q_UNUSED(bottomRight);
-    Q_UNUSED(roles);
-    QModelIndexList qml;
-    for (int i = 0; i < ui->tableCalendrier->model()->columnCount(); ++i) {
-        QModelIndex ind = ui->tableCalendrier->model()->index(topLeft.row(), i);
-        qml.append(ind);
-    }
-
-    fillInputChange(ui->tableCalendrier, qml);
-}
-
 void CalendrierCrud::on_row_selected(const QItemSelection &selected, const QItemSelection &deselected)
 {
     Q_UNUSED(deselected);

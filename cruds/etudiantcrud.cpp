@@ -36,17 +36,13 @@ void EtudiantCrud::displayTable(){
     model->sort(0, Qt::AscendingOrder);
     model->select();
 
-    ui->tableEtudiant->setItemDelegate(new QSqlRelationalDelegate(ui->tableEtudiant));
-    ui->tableEtudiant->setItemDelegateForColumn(0, new CustomDelegate(this, "unedit", "", "", ""));
-    ui->tableEtudiant->setItemDelegateForColumn(1, new CustomDelegate(this, "", "", "^.+$", "Le nom ne doit pas être vide"));
-    ui->tableEtudiant->setItemDelegateForColumn(3, new CustomDelegate(this, "", "phoneNumber", "^(032|033|034|038)\\d{7}$", "Le numero de téléphone doit être de la forme 03XXXXXXXX"));
-
     ui->tableEtudiant->setModel(model);
 
 
+    ui->tableEtudiant->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
     ui->tableEtudiant->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    connect(ui->tableEtudiant->model(), &QAbstractItemModel::dataChanged, this, EtudiantCrud::on_table_value_change);
     connect(ui->tableEtudiant->selectionModel(), &QItemSelectionModel::selectionChanged, this, &EtudiantCrud::on_row_selected);
 }
 
@@ -76,18 +72,6 @@ bool EtudiantCrud::addNewEtudiant(QString numEt, QString nomEt, QString prenomEt
 }
 
 // slots
-void EtudiantCrud::on_table_value_change(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles){
-    Q_UNUSED(bottomRight);
-    Q_UNUSED(roles);
-    QModelIndexList qml;
-    for (int i = 0; i < ui->tableEtudiant->model()->columnCount(); ++i) {
-        QModelIndex ind = ui->tableEtudiant->model()->index(topLeft.row(), i);
-        qml.append(ind);
-    }
-
-    fillInputChange(ui->tableEtudiant, qml);
-}
-
 void EtudiantCrud::on_row_selected(const QItemSelection &selected, const QItemSelection &deselected)
 {
     Q_UNUSED(deselected);

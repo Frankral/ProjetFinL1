@@ -76,49 +76,43 @@
      <property name="verticalSpacing">
       <number>30</number>
      </property>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Nom Etudiant</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="InputNom"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Prénom Etudiant</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="InputPrenom"/>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Numéro Téléphone </string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="CustomLineEdit" name="InputNumTel"/>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Numéro Etudiant</string>
+        <string>Référence de batiment</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="numEtudiant">
+      <widget class="QLineEdit" name="RefBat">
        <property name="enabled">
         <bool>false</bool>
        </property>
       </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Numero de Chambre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="NumChambre">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Catégorie</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="Categorie"/>
      </item>
     </layout>
    </widget>
@@ -152,7 +146,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QTableView" name="tableEtudiant">
+  <widget class="QTableView" name="tableChambre">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -181,13 +175,6 @@
    </attribute>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CustomLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">customLineEdit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -69,7 +69,7 @@
       <x>10</x>
       <y>30</y>
       <width>281</width>
-      <height>188</height>
+      <height>243</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -79,44 +79,66 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Nom Etudiant</string>
+        <string>Référence de batiment</string>
        </property>
       </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="InputNom"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Prénom Etudiant</string>
+        <string>numéro de chambre</string>
        </property>
       </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="InputPrenom"/>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Numéro Téléphone </string>
+        <string>Date début de location </string>
        </property>
       </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="CustomLineEdit" name="InputNumTel"/>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Numéro Etudiant</string>
+        <string>Numéro étudiant</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="numEtudiant">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="CustomCombo" name="numEt">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Date fin location</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QDateEdit" name="dateFinLoc"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="CustomCombo" name="refBat">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="CustomCombo" name="numChambre">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="CustomCombo" name="dateDebLoc">
+       <property name="editable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -126,14 +148,14 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>230</y>
+      <y>270</y>
       <width>160</width>
-      <height>101</height>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="spacing">
-      <number>10</number>
+      <number>0</number>
      </property>
      <item>
       <widget class="QPushButton" name="modifierButton">
@@ -152,7 +174,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QTableView" name="tableEtudiant">
+  <widget class="QTableView" name="tableLouer">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -183,9 +205,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CustomLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">customLineEdit.h</header>
+   <class>CustomCombo</class>
+   <extends>QComboBox</extends>
+   <header>customCombo.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
