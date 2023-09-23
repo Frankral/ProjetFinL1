@@ -107,7 +107,7 @@
      <item row="0" column="1">
       <widget class="CustomCombo" name="numEt">
        <property name="editable">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -124,21 +124,21 @@
      <item row="1" column="1">
       <widget class="CustomCombo" name="refBat">
        <property name="editable">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
       <widget class="CustomCombo" name="numChambre">
        <property name="editable">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
       <widget class="CustomCombo" name="dateDebLoc">
        <property name="editable">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>

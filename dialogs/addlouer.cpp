@@ -22,32 +22,6 @@ addLouer::~addLouer()
     delete ui;
 }
 
-
-bool addLouer::checkNumEt(QString numEt)
-{
-
-}
-
-bool addLouer::checkRef(QString refBat)
-{
-
-}
-
-bool addLouer::checkNumChambre(QString numchambre)
-{
-
-}
-
-bool addLouer::checkDateDebLoc(QString dateDebLoc)
-{
-
-}
-
-bool addLouer::checkDateFinLoc(QString dateFinLoc)
-{
-
-}
-
 //slots
 
 void addLouer::on_OkButton_clicked()
@@ -77,7 +51,6 @@ void addLouer::on_CancelButton_clicked()
 void addLouer::on_refBat_currentTextChanged(const QString &arg1)
 {
     LouerCrud* parent = static_cast<LouerCrud*>(this->parent());
-    qDebug() << "debug";
     ui->numChambre->setupUI(arg1, parent->getDb(), "");
 }
 

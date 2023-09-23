@@ -119,17 +119,22 @@ void LouerCrud::on_modifierButton_clicked()
     numChambre = ui->numChambre->currentText();
     dateDebLoc = ui->dateDebLoc->currentText();
 
+    if(!mydb->locationExist(numEt, refBat, numChambre, dateDebLoc)){
+
+        QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
+        QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString()};
+        QStringList ids = {"numet", "refbat", "numchambre", "datedebutlocation"};
+
+        QStringList idVals = getIds();
+
+        mydb->update("louer", columns, values, ids, idVals);
+
+        resetTable();
+    } else {
+        QMessageBox::critical(this, "Erreur de doublon", "La location existe déjà\nVeuillez entrez un nouveau");
+    }
 
 
-    QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
-    QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString()};
-    QStringList ids = {"numet", "refbat", "numchambre", "datedebutlocation"};
-
-    QStringList idVals = getIds();
-
-    mydb->update("louer", columns, values, ids, idVals);
-
-    resetTable();
 
 }
 

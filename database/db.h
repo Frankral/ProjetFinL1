@@ -42,8 +42,6 @@ public:
     QSqlQuery getAll(QString table, QString column);
 
     QSqlQuery getChambre(QString bat);
-    bool isChambreIn(QString refbat, QString chambre);
-    QString getFirstChambre(QString refbat);
 
 private:
     QSqlDatabase mydb;

@@ -47,8 +47,6 @@ void Db::update(QString table, QStringList columns, QStringList values, QStringL
 
     qry.prepare(qryStr);
 
-    qDebug() << qryStr;
-
     if (!qry.exec()) {
         qDebug() << "Query execution failed!";
     } else {
@@ -165,6 +163,17 @@ bool Db::chambreExist(QString refbat, QString numchambre)
 
 bool Db::locationExist(QString numEt, QString refBat, QString numChambre, QString dateDebutLoc)
 {
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM louer WHERE numet=:numet AND refbat=:refbat AND numchambre=:numchambre AND datedebutlocation=:datedebloc");
+
+    qry.bindValue(":numet", numEt);
+    qry.bindValue(":refbat", refBat);
+    qry.bindValue(":numchambre", numChambre);
+    qry.bindValue(":datedebloc", dateDebutLoc);
+
+    if (qry.exec() & qry.next()) {
+        return true;
+    }
     return false;
 }
 
@@ -190,28 +199,4 @@ QSqlQuery Db::getChambre(QString bat){
     }
 
     return qry;
-}
-
-bool Db::isChambreIn(QString refbat, QString chambre){
-    QSqlQuery qry;
-    QString query = "SELECT numchambre FROM chambre WHERE refbat='" + refbat + "' AND numchambre='" + chambre + "'";
-    qry.prepare(query);
-
-    if(qry.exec() && qry.next()){
-        return true;
-    }
-
-    return false;
-}
-
-QString Db::getFirstChambre(QString refbat){
-    QSqlQuery qry;
-    QString query = "SELECT numchambre FROM chambre WHERE refbat='" + refbat + "' ORDER BY numchambre ASC";
-    qry.prepare(query);
-
-    if(qry.exec() && qry.next()){
-        qDebug() << qry.value(0).toString();
-        return qry.value(0).toString();
-    }
-    return "";
 }
