@@ -68,3 +68,25 @@ INCLUDEPATH += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    assets/AMOLED.qss \
+    assets/Aqua.qss \
+    assets/ConsoleStyle.qss \
+    assets/ElegantDark.qss \
+    assets/LICENSE \
+    assets/MacOS.qss \
+    assets/ManjaroMix.qss \
+    assets/MaterialDark.qss \
+    assets/NeonButtons.qss \
+    assets/QSS-master.zip \
+    assets/QSS_IMG/go-down-symbolic.symbolic.png \
+    assets/QSS_IMG/go-next-symbolic.symbolic.png \
+    assets/QSS_IMG/go-previous-symbolic.symbolic.png \
+    assets/QSS_IMG/go-up-symbolic.symbolic.png \
+    assets/QSS_IMG/object-select-symbolic.symbolic.png \
+    assets/README.md \
+    assets/Ubuntu.qss
+
+RESOURCES += \
+    resources.qrc

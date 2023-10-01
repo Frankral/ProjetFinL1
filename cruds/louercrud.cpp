@@ -27,7 +27,6 @@ void LouerCrud::displayTable(){
     QSqlRelationalTableModel* model = new QSqlRelationalTableModel();
 
     model->setTable("louer");
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numéro Etudiant"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Référence Batiment"));
@@ -92,6 +91,18 @@ Db* LouerCrud::getDb(){
     return mydb;
 }
 
+bool LouerCrud::isDateSup(){
+    QDate datefin = ui->dateFinLoc->date();
+    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "yyyy-MM-dd");
+    qDebug() << datedeb;
+    if(datefin >= datedeb) {
+        qDebug() << datedeb;
+        return true;
+    }
+    QMessageBox::critical(this, "La date de debut est plus recent que la date de fin", "La date de debut est plus recent que la date de fin\nVeuillez reesayer");
+    return false;
+}
+
 // slots
 
 void LouerCrud::on_row_selected(const QItemSelection &selected, const QItemSelection &deselected)
@@ -118,23 +129,17 @@ void LouerCrud::on_modifierButton_clicked()
     refBat = ui->refBat->currentText();
     numChambre = ui->numChambre->currentText();
     dateDebLoc = ui->dateDebLoc->currentText();
+        if(isDateSup()){
+            QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
+            QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString()};
+            QStringList ids = {"numet", "refbat", "numchambre", "datedebutlocation"};
 
-    if(!mydb->locationExist(numEt, refBat, numChambre, dateDebLoc)){
+            QStringList idVals = getIds();
 
-        QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
-        QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString()};
-        QStringList ids = {"numet", "refbat", "numchambre", "datedebutlocation"};
+            mydb->update("louer", columns, values, ids, idVals);
 
-        QStringList idVals = getIds();
-
-        mydb->update("louer", columns, values, ids, idVals);
-
-        resetTable();
-    } else {
-        QMessageBox::critical(this, "Erreur de doublon", "La location existe déjà\nVeuillez entrez un nouveau");
-    }
-
-
+            resetTable();
+        }
 
 }
 

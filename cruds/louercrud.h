@@ -30,6 +30,7 @@ public:
     bool addNewLocation(QString numEt, QString refBat, QString numchambre, QString dateDebLoc, QDate dateFinLoc);
 
     QStringList getIds();
+    bool isDateSup();
 private slots:
 
     void on_modifierButton_clicked();

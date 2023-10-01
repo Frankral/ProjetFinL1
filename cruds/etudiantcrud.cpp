@@ -1,5 +1,5 @@
 #include "etudiantcrud.h"
-#include "ui_crudetudiant.h"
+#include "ui_etudiantcrud.h"
 #include "dialogs/addetudiant.h"
 
 EtudiantCrud::EtudiantCrud(QWidget *parent, Db* database) :
@@ -36,8 +36,9 @@ void EtudiantCrud::displayTable(){
     model->sort(0, Qt::AscendingOrder);
     model->select();
 
-    ui->tableEtudiant->setModel(model);
+    ui->tableEtudiant->setItemDelegateForColumn(3, new CustomDelegate(this, "phoneNumber"));
 
+    ui->tableEtudiant->setModel(model);
 
     ui->tableEtudiant->setEditTriggers(QAbstractItemView::NoEditTriggers);
 

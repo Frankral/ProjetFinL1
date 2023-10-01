@@ -22,6 +22,19 @@ addLouer::~addLouer()
     delete ui;
 }
 
+bool addLouer::isDateSup(){
+    QDate datefin = ui->dateFinLoc->date();
+    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "yyyy-MM-dd");
+    qDebug() << datedeb;
+    if(datefin >= datedeb) {
+        qDebug() << datedeb;
+        return true;
+    }
+    QMessageBox::critical(this, "La date de debut est plus recent que la date de fin", "La date de debut est plus recent que la date de fin\nVeuillez reesayer");
+    return false;
+}
+
+
 //slots
 
 void addLouer::on_OkButton_clicked()
@@ -33,11 +46,12 @@ void addLouer::on_OkButton_clicked()
     numChambre = ui->numChambre->currentText();
     dateDebLoc = ui->dateDebLoc->currentText();
 
-
-    LouerCrud* parent = static_cast<LouerCrud*>(this->parent());
-    if(parent->addNewLocation(numEt, refBat, numChambre, dateDebLoc, dateFinLoc)){
-        parent->resetTable();
-        this->close();
+    if(isDateSup()){
+        LouerCrud* parent = static_cast<LouerCrud*>(this->parent());
+        if(parent->addNewLocation(numEt, refBat, numChambre, dateDebLoc, dateFinLoc)){
+            parent->resetTable();
+            this->close();
+        }
     }
 
 }

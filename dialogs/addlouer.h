@@ -25,6 +25,7 @@ public:
     bool checkDateFinLoc(QString dateFinLoc);
 
 
+    bool isDateSup();
 private slots:
     void on_OkButton_clicked();
 

@@ -44,6 +44,9 @@
      <height>24</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="text">
     <string>Ajouter Nouveau</string>
    </property>
@@ -106,6 +109,9 @@
      </item>
      <item row="0" column="1">
       <widget class="CustomCombo" name="numEt">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="editable">
         <bool>false</bool>
        </property>
@@ -123,6 +129,9 @@
      </item>
      <item row="1" column="1">
       <widget class="CustomCombo" name="refBat">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="editable">
         <bool>false</bool>
        </property>
@@ -130,6 +139,9 @@
      </item>
      <item row="2" column="1">
       <widget class="CustomCombo" name="numChambre">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="editable">
         <bool>false</bool>
        </property>
@@ -137,6 +149,9 @@
      </item>
      <item row="3" column="1">
       <widget class="CustomCombo" name="dateDebLoc">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="editable">
         <bool>false</bool>
        </property>
@@ -159,6 +174,9 @@
      </property>
      <item>
       <widget class="QPushButton" name="modifierButton">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Modifier</string>
        </property>
@@ -166,6 +184,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="supprimerButton">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Supprimer</string>
        </property>
