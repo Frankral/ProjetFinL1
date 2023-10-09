@@ -20,6 +20,7 @@ SOURCES += \
     dialogs/addchambre.cpp \
     dialogs/addetudiant.cpp \
     dialogs/addlouer.cpp \
+    historique/listechambre.cpp \
     main.cpp \
     mainwindow.cpp \
     tableDelegate/customDelegate.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     dialogs/addchambre.h \
     dialogs/addetudiant.h \
     dialogs/addlouer.h \
+    historique/listechambre.h \
     mainwindow.h \
     tableDelegate/customDelegate.h \
     tableDelegate/format.h \
@@ -58,6 +60,7 @@ FORMS += \
     dialogs/addchambre.ui \
     dialogs/addetudiant.ui \
     dialogs/addlouer.ui \
+    historique/listechambre.ui \
     mainwindow.ui
 
 INCLUDEPATH += \

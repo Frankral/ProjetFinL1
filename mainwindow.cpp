@@ -19,9 +19,6 @@ MainWindow::~MainWindow()
 }
 
 
-
-
-
 void MainWindow::on_actionBatiment_triggered()
 {
     BatimentCrud* crudBat = new BatimentCrud(this, mydb);
@@ -52,5 +49,12 @@ void MainWindow::on_actionLouer_triggered()
 {
     LouerCrud* crudLouer = new LouerCrud(this, mydb);
     this->setCentralWidget(crudLouer);
+}
+
+
+void MainWindow::on_actionhistorique_de_chambre_triggered()
+{
+    ListeChambre* listechambre = new ListeChambre(this, mydb);
+    this->setCentralWidget(listechambre);
 }
 

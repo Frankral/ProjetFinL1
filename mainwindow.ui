@@ -36,7 +36,14 @@
     <addaction name="actionEtudiant"/>
     <addaction name="actionLouer"/>
    </widget>
+   <widget class="QMenu" name="menuHistorique">
+    <property name="title">
+     <string>Historique</string>
+    </property>
+    <addaction name="actionhistorique_de_chambre"/>
+   </widget>
    <addaction name="menuCruds"/>
+   <addaction name="menuHistorique"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBatiment">
@@ -62,6 +69,11 @@
   <action name="actionLouer">
    <property name="text">
     <string>Louer</string>
+   </property>
+  </action>
+  <action name="actionhistorique_de_chambre">
+   <property name="text">
+    <string>Historique de chambre</string>
    </property>
   </action>
  </widget>
