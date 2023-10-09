@@ -13,6 +13,14 @@ void CustomCombo::getItems(Db* database, QString table, QString column)
     }
 }
 
+void CustomCombo::getItemsDate(Db* database, QString table, QString column)
+{
+    QSqlQuery qry = database->getAll(table, column);
+    while(qry.next()){
+        this->addItem(qry.value(0).toDate().toString("dd/MM/yyyy"), qry.value(0).toDate().toString("dd/MM/yyyy"));
+    }
+}
+
 void CustomCombo::getChambre(Db* database, QString refbat, QString numChambre){
     QSqlQuery qry = database->getChambre(refbat);
     this->clear();
@@ -27,7 +35,11 @@ void CustomCombo::getChambre(Db* database, QString refbat, QString numChambre){
 }
 
 void CustomCombo::setupUI(QString table, QString column, Db* database){
-    getItems(database, table, column);
+    if(table == "calendrier"){
+        getItemsDate(database, table, column);
+    } else {
+        getItems(database, table, column);
+    }
 }
 
 void CustomCombo::setupUI(QString refbat, Db* database, QString numchambre){

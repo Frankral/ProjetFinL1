@@ -14,6 +14,7 @@ public:
     void getChambre(Db *database, QString refbat, QString numchambre);
     void setupUI(QString table, QString column, Db *database);
     void setupUI(QString refbat, Db *database, QString numchambre);
+    void getItemsDate(Db *database, QString table, QString column);
 };
 
 #endif // CUSTOMCOMBO_H

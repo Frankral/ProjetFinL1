@@ -55,7 +55,7 @@ void CalendrierCrud::fillInputChange(QTableView* qv, QModelIndexList indexes){
 
 bool CalendrierCrud::addNewCalendrier(QDate dateDebLoc){
     if(!mydb->dateDebLocExist(dateDebLoc)){
-        mydb->add("calendrier", {dateDebLoc.toString()});
+        mydb->add("calendrier", {dateDebLoc.toString("yyyy/MM/dd")});
         return true;
     }
     QMessageBox::critical(this, "Erreur de doublon", "La date existe déjà\nVeuillez entrez un nouveau");
@@ -77,15 +77,6 @@ void CalendrierCrud::on_row_selected(const QItemSelection &selected, const QItem
     }
 }
 
-
-//void CalendrierCrud::on_modifierButton_clicked()
-//{
-//    QDate dateDebLoc = ui->dateDebLoc->date();
-
-//    mydb->update("calendrier", {"datedebutlocation"}, {dateDebLoc.toString()}, {"datedebutlocation"}, {dateDebLoc.toString()});
-
-//    resetTable();
-//}
 
 void CalendrierCrud::on_supprimerButton_clicked()
 {
@@ -131,9 +122,9 @@ void CalendrierCrud::on_searchButton_clicked()
     QString filter;
 
     if(dateDeb >= dateFin) {
-        filter = "datedebutlocation >= '"+ dateFin.toString() + "' AND datedebutlocation <= '" + dateDeb.toString() + "'";
+        filter = "datedebutlocation >= '"+ dateFin.toString("yyyy/MM/dd") + "' AND datedebutlocation <= '" + dateDeb.toString("yyyy/MM/dd") + "'";
     } else {
-        filter = "datedebutlocation >= '" + dateDeb.toString() + "' AND datedebutlocation <= '" + dateFin.toString() + "'";
+        filter = "datedebutlocation >= '" + dateDeb.toString("yyyy/MM/dd") + "' AND datedebutlocation <= '" + dateFin.toString("yyyy/MM/dd") + "'";
     }
 
     model->setFilter(filter);

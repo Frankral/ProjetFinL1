@@ -69,7 +69,7 @@ void LouerCrud::fillInputChange(QTableView* qv, QModelIndexList indexes){
 bool LouerCrud::addNewLocation(QString numEt, QString refBat, QString numChambre, QString dateDebLocation, QDate dateFinLocation){
     if(!mydb->locationExist(numEt, refBat, numChambre, dateDebLocation)){
 
-        mydb->add("louer" ,{numEt, refBat, numChambre, dateDebLocation, dateFinLocation.toString()});
+        mydb->add("louer" ,{numEt, refBat, numChambre, dateDebLocation, dateFinLocation.toString("yyyy/MM/dd")});
         return true;
     } else {
         QMessageBox::critical(this, "Erreur de doublon", "La location existe déjà\nVeuillez entrez un nouveau");
@@ -131,7 +131,7 @@ void LouerCrud::on_modifierButton_clicked()
     dateDebLoc = ui->dateDebLoc->currentText();
         if(isDateSup()){
             QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
-            QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString()};
+            QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString("yyyy/MM/dd")};
             QStringList ids = {"numet", "refbat", "numchambre", "datedebutlocation"};
 
             QStringList idVals = getIds();
