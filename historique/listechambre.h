@@ -7,6 +7,7 @@
 #include <QTableView>
 
 #include "database/db.h"
+#include "historique/historiquechambre.h"
 
 namespace Ui {
 class ListeChambre;
@@ -20,6 +21,11 @@ public:
     explicit ListeChambre(QWidget *parent = nullptr, Db* database = new Db());
     ~ListeChambre();
     void displayTable();
+
+private slots:
+    void on_searchInput_textEdited(const QString &arg1);
+
+    void on_voirButton_clicked();
 
 private:
     Db* mydb;

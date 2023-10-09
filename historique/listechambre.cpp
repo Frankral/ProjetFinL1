@@ -54,3 +54,26 @@ void ListeChambre::on_row_selected(const QItemSelection &selected, const QItemSe
     }
 }
 
+
+void ListeChambre::on_searchInput_textEdited(const QString &arg1)
+{
+    ui->voirButton->hide();
+    QSqlRelationalTableModel* model = static_cast<QSqlRelationalTableModel*>(ui->VueChambre->model());
+    if(arg1 != ""){
+        QString arg = arg1.toLower();
+        QString filter = "LOWER(refbat) LIKE '%" + arg + "%' OR LOWER(numchambre) LIKE '%" + arg + "%'";
+        model->setFilter(filter);
+        model->select();
+    } else {
+        model->setFilter("");
+        model->select();
+    }
+}
+
+
+void ListeChambre::on_voirButton_clicked()
+{
+    historiqueChambre* historique = new historiqueChambre(this);
+    historique->show();
+}
+
