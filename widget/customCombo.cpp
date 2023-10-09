@@ -17,7 +17,7 @@ void CustomCombo::getItemsDate(Db* database, QString table, QString column)
 {
     QSqlQuery qry = database->getAll(table, column);
     while(qry.next()){
-        this->addItem(qry.value(0).toDate().toString("dd/MM/yyyy"), qry.value(0).toDate().toString("dd/MM/yyyy"));
+        this->addItem(qry.value(0).toDate().toString("dd/MM/yyyy"), qry.value(0).toDate().toString("yyyy/MM/dd"));
     }
 }
 

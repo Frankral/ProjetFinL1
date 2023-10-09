@@ -24,7 +24,9 @@ void ListeChambre::displayTable(){
     model->setTable("chambre");
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Réference Batiment"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numéro de Chambre"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numéro de Chambre"));
+
+    model->removeColumn(2);
 
     model->sort(0, Qt::AscendingOrder);
     model->select();
@@ -73,7 +75,12 @@ void ListeChambre::on_searchInput_textEdited(const QString &arg1)
 
 void ListeChambre::on_voirButton_clicked()
 {
-    historiqueChambre* historique = new historiqueChambre(this);
+    QModelIndex ind = ui->VueChambre->selectionModel()->currentIndex();
+    ind = ui->VueChambre->model()->index(ind.row(), 0);
+    QString refbat = ui->VueChambre->model()->data(ind).toString();
+    ind = ui->VueChambre->model()->index(ind.row(), 1);
+    QString numChambre = ui->VueChambre->model()->data(ind).toString();
+    historiqueChambre* historique = new historiqueChambre(this, refbat, numChambre);
     historique->show();
 }
 

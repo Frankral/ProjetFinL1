@@ -24,10 +24,8 @@ addLouer::~addLouer()
 
 bool addLouer::isDateSup(){
     QDate datefin = ui->dateFinLoc->date();
-    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "yyyy-MM-dd");
-    qDebug() << datedeb;
+    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "dd/MM/yyyy");
     if(datefin >= datedeb) {
-        qDebug() << datedeb;
         return true;
     }
     QMessageBox::critical(this, "La date de debut est plus recent que la date de fin", "La date de debut est plus recent que la date de fin\nVeuillez reesayer");
@@ -44,7 +42,7 @@ void addLouer::on_OkButton_clicked()
     numEt = ui->numEt->currentText();
     refBat = ui->refBat->currentText();
     numChambre = ui->numChambre->currentText();
-    dateDebLoc = ui->dateDebLoc->currentText();
+    dateDebLoc = ui->dateDebLoc->currentData().toString();
 
     if(isDateSup()){
         LouerCrud* parent = static_cast<LouerCrud*>(this->parent());

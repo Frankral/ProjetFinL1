@@ -62,7 +62,7 @@ void LouerCrud::fillInputChange(QTableView* qv, QModelIndexList indexes){
     ui->numEt->setCurrentText(qv->model()->data(indexes.at(0)).toString());
     ui->refBat->setCurrentText(qv->model()->data(indexes.at(1)).toString());
     ui->numChambre->setCurrentText(qv->model()->data(indexes.at(2)).toString());
-    ui->dateDebLoc->setCurrentText(qv->model()->data(indexes.at(3)).toString());
+    ui->dateDebLoc->setCurrentText(qv->model()->data(indexes.at(3)).toDate().toString("dd/MM/yyyy"));
     ui->dateFinLoc->setDate(qv->model()->data(indexes.at(4)).toDate());
 }
 
@@ -93,10 +93,8 @@ Db* LouerCrud::getDb(){
 
 bool LouerCrud::isDateSup(){
     QDate datefin = ui->dateFinLoc->date();
-    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "yyyy-MM-dd");
-    qDebug() << datedeb;
+    QDate datedeb = QDate::fromString(ui->dateDebLoc->currentText(), "dd/MM/yyyy");
     if(datefin >= datedeb) {
-        qDebug() << datedeb;
         return true;
     }
     QMessageBox::critical(this, "La date de debut est plus recent que la date de fin", "La date de debut est plus recent que la date de fin\nVeuillez reesayer");
@@ -113,7 +111,7 @@ void LouerCrud::on_row_selected(const QItemSelection &selected, const QItemSelec
     {
         fillInputChange(qv, selected.indexes());
         ui->modifierBox->show();
-        ui->numChambre->setupUI(ui->refBat->currentText(), mydb, ui->tableLouer->model()->data(selected.indexes().at(2)).toString());
+        ui->numChambre->setupUI(ui->refBat->currentData().toString(), mydb, ui->tableLouer->model()->data(selected.indexes().at(2)).toString());
     } else {
         ui->modifierBox->hide();
     }
@@ -128,7 +126,7 @@ void LouerCrud::on_modifierButton_clicked()
     numEt = ui->numEt->currentText();
     refBat = ui->refBat->currentText();
     numChambre = ui->numChambre->currentText();
-    dateDebLoc = ui->dateDebLoc->currentText();
+    dateDebLoc = ui->dateDebLoc->currentData().toString();
         if(isDateSup()){
             QStringList columns = {"numet", "refbat", "numchambre", "datedebutlocation", "datefinlocation"};
             QStringList values = {numEt, refBat, numChambre, dateDebLoc, dateFinLoc.toString("yyyy/MM/dd")};
