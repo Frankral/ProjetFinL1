@@ -2,12 +2,11 @@
 
 Db::Db()
 {
-    mydb = QSqlDatabase::addDatabase("QPSQL");
+    mydb = QSqlDatabase::addDatabase("QMYSQL");
     mydb.setHostName("localhost");
-    mydb.setUserName("postgres");
-    mydb.setPassword("root");
-    mydb.setPort(5433);
-    mydb.setDatabaseName("citeUniv");
+    mydb.setUserName("root");
+    mydb.setPassword("");
+    mydb.setDatabaseName("citeuniv");
 
 }
 
