@@ -6,5 +6,7 @@
         <file>assets/plus.png</file>
         <file>assets/sorting-down.png</file>
         <file>assets/sorting-up.png</file>
+        <file>assets/batiment.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

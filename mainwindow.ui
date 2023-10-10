@@ -28,7 +28,7 @@
    </property>
    <widget class="QMenu" name="menuCruds">
     <property name="title">
-     <string>Cruds</string>
+     <string>Menu</string>
     </property>
     <addaction name="actionBatiment"/>
     <addaction name="actionCalendrier"/>
@@ -74,6 +74,11 @@
   <action name="actionhistorique_de_chambre">
    <property name="text">
     <string>Historique de chambre</string>
+   </property>
+  </action>
+  <action name="actioncrud">
+   <property name="text">
+    <string>crud</string>
    </property>
   </action>
  </widget>

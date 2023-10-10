@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
 
     a.setStyleSheet(styleSheet);
 
+    a.setWindowIcon(QIcon(":image/assets/batiment.png"));
+
     w.show();
     return a.exec();
 }

@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     mydb->open();
 
+    this->setWindowTitle("GESTION DE CITE UNIVERSITAIRE");
+
 }
 
 MainWindow::~MainWindow()
