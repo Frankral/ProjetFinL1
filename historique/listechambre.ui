@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
+    <width>819</width>
     <height>413</height>
    </rect>
   </property>
@@ -77,6 +77,35 @@
    </property>
    <property name="text">
     <string>Voir Historique</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="verifierButton">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>130</y>
+     <width>141</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>Verifier diponibilite</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="resultatLabel">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>200</y>
+     <width>211</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

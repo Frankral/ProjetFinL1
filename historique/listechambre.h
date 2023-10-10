@@ -22,10 +22,16 @@ public:
     ~ListeChambre();
     void displayTable();
 
+    void verifierDisponibiliteChambre();
+
 private slots:
     void on_searchInput_textEdited(const QString &arg1);
 
     void on_voirButton_clicked();
+
+    void on_verifierButton_clicked();
+
+    void handleSectionClicked(int logicalIndex);
 
 private:
     Db* mydb;
