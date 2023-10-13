@@ -11,6 +11,7 @@
 #include "cruds/louercrud.h"
 
 #include "historique/listechambre.h"
+#include "historique/chambreocc.h"
 
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"
@@ -39,6 +40,8 @@ private slots:
     void on_actionLouer_triggered();
 
     void on_actionhistorique_de_chambre_triggered();
+
+    void on_actionListe_des_Chambres_Occup_es_triggered();
 
 private:
     Db* mydb = new Db;

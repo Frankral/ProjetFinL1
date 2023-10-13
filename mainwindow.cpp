@@ -60,3 +60,10 @@ void MainWindow::on_actionhistorique_de_chambre_triggered()
     this->setCentralWidget(listechambre);
 }
 
+
+void MainWindow::on_actionListe_des_Chambres_Occup_es_triggered()
+{
+    ChambreOcc* chambreOcc = new ChambreOcc(this);
+    this->setCentralWidget(chambreOcc);
+}
+

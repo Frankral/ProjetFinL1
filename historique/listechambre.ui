@@ -63,43 +63,11 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="voirButton">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>10</y>
-     <width>121</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Voir Historique</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="verifierButton">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>130</y>
-     <width>141</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Verifier diponibilite</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="resultatLabel">
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>200</y>
+     <y>310</y>
      <width>211</width>
      <height>20</height>
     </rect>
@@ -107,6 +75,38 @@
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>149</y>
+     <width>160</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="voirButton">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>Voir Historique</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="verifierButton">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>Verifier diponibilite</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

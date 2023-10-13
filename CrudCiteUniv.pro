@@ -20,6 +20,7 @@ SOURCES += \
     dialogs/addchambre.cpp \
     dialogs/addetudiant.cpp \
     dialogs/addlouer.cpp \
+    historique/chambreocc.cpp \
     historique/historiquechambre.cpp \
     historique/listechambre.cpp \
     main.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     dialogs/addchambre.h \
     dialogs/addetudiant.h \
     dialogs/addlouer.h \
+    historique/chambreocc.h \
     historique/historiquechambre.h \
     historique/listechambre.h \
     mainwindow.h \
@@ -62,6 +64,7 @@ FORMS += \
     dialogs/addchambre.ui \
     dialogs/addetudiant.ui \
     dialogs/addlouer.ui \
+    historique/chambreocc.ui \
     historique/historiquechambre.ui \
     historique/listechambre.ui \
     mainwindow.ui

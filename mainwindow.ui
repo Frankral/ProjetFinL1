@@ -41,6 +41,7 @@
      <string>Historique</string>
     </property>
     <addaction name="actionhistorique_de_chambre"/>
+    <addaction name="actionListe_des_Chambres_Occup_es"/>
    </widget>
    <addaction name="menuCruds"/>
    <addaction name="menuHistorique"/>
@@ -79,6 +80,11 @@
   <action name="actioncrud">
    <property name="text">
     <string>crud</string>
+   </property>
+  </action>
+  <action name="actionListe_des_Chambres_Occup_es">
+   <property name="text">
+    <string>Liste des Chambres Occupées</string>
    </property>
   </action>
  </widget>
