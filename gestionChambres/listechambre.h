@@ -7,7 +7,7 @@
 #include <QTableView>
 
 #include "database/db.h"
-#include "historique/historiquechambre.h"
+#include "gestionChambres/historiquechambre.h"
 
 namespace Ui {
 class ListeChambre;

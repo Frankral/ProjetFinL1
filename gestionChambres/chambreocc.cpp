@@ -26,7 +26,16 @@ void ChambreOcc::displayTable(){
 
     model->setQuery(qry);
 
-    model->sort(3, Qt::AscendingOrder);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Date Début\nlocation"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date Fin \nlocation"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nom Etudiant"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Prénom Etudiant"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numéro \nChambre"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Réference\n Batiment"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("Catégorie"));
+
+
+    model->sort(0, Qt::AscendingOrder);
     model->select();
 
     ui->ListeChambre->setModel(model);

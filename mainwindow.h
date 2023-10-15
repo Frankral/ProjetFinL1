@@ -10,8 +10,8 @@
 #include "cruds/chambrecrud.h"
 #include "cruds/louercrud.h"
 
-#include "historique/listechambre.h"
-#include "historique/chambreocc.h"
+#include "gestionChambres//listechambre.h"
+#include "gestionChambres/chambreocc.h"
 
 #include "database/db.h"
 #include "tableDelegate/customDelegate.h"

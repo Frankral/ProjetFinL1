@@ -28,11 +28,11 @@ void LouerCrud::displayTable(){
 
     model->setTable("louer");
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numéro Etudiant"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Référence Batiment"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Numéro chambre"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date Debut Location"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date Fin Location"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numéro\n Etudiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Référence\n Batiment"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Numéro\n chambre"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date Debut\n Location"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date Fin\n Location"));
 
 
 
