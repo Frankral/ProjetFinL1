@@ -43,6 +43,20 @@ private slots:
 
     void on_actionListe_des_Chambres_Occup_es_triggered();
 
+    void on_crudBat_clicked();
+
+    void on_crudCal_clicked();
+
+    void on_crudChamb_clicked();
+
+    void on_crudEt_clicked();
+
+    void on_crudLouer_clicked();
+
+    void on_ListeChambre_clicked();
+
+    void on_ListeOccupee_clicked();
+
 private:
     Db* mydb = new Db;
 
