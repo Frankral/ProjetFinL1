@@ -20,7 +20,7 @@ void ChambreOcc::displayTable(){
 
     QString qry = "SELECT datedebutlocation, datefinlocation, etudiant.nomet, etudiant.prenomet, louer.numchambre, louer.refbat, chambre.categorie ";
     qry += "FROM louer ";
-    qry += "JOIN chambre ON chambre.numchambre = louer.numchambre ";
+    qry += "JOIN chambre ON chambre.numchambre = louer.numchambre AND chambre.refbat = louer.refbat ";
     qry += "JOIN etudiant ON etudiant.numet = louer.numet ";
     qry += "WHERE datefinlocation >= CURRENT_TIMESTAMP";
 
